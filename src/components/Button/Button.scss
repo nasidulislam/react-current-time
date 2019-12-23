@@ -1,0 +1,9 @@
+@import '../../global/styles/variables.scss';
+
+.button-container {
+  .button {
+    background-color: green; 
+    border-radius: $button-border-radius;
+    min-width: 120px;
+  }
+}
