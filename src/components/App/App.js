@@ -11,12 +11,21 @@ import content from "./content";
 import classList from "../../global/js/helpers/classList";
 import "../../global/styles/reset.scss";
 import timezone from "../../global/js/services/timezone";
+import storageService from '../../global/js/services/localStorage';
 
 class App extends React.Component {
   state = {
     favorites: [],
     currentCity: "",
     hasNoLocation: ""
+  };
+
+  componentDidMount() {
+    const localFavorites = storageService.get(content.localStorage.keys.favorites);
+
+    if (localFavorites) {
+      this.setState({ favorites: JSON.parse(localFavorites) });
+    }
   };
 
   lookupCity = () => {
@@ -62,6 +71,7 @@ class App extends React.Component {
     const favorites = this.state.favorites;
 
     favorites.push(currentCity);
+    storageService.set(content.localStorage.keys.favorites, favorites);
     this.setState({ favorites });
   };
 
