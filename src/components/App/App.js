@@ -16,8 +16,7 @@ class App extends React.Component {
   state = {
     favorites: [],
     currentCity: "",
-    hasNoLocation: "",
-    favorites: []
+    hasNoLocation: ""
   };
 
   lookupCity = () => {
@@ -26,7 +25,6 @@ class App extends React.Component {
     let currentCity;
 
     if (address) {
-      // currentCity = addressObject.formatted_address;
       currentCity = {
         name: addressObject.formatted_address,
         lat: addressObject.geometry.location.lat(),
