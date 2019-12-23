@@ -1,0 +1,11 @@
+.home-container {
+  .inputs-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+
+  .home-add-city-container {
+    min-width: 80%;
+  }
+}

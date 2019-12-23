@@ -1,0 +1,37 @@
+@import '../../global/styles/variables.scss';
+
+.app-container {
+    background: -webkit-linear-gradient(to top, $gradient-from, $gradient-to);
+    background: linear-gradient(to top, $gradient-from, $gradient-to);
+    color: $white;
+    font-family: 'Josefin Sans', sans-serif;
+    height: 100vh;
+    letter-spacing: 0.6px;
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+  .top-nav-container {
+    display: flex;
+    justify-content: space-around;
+
+    .nav-item {
+      background-color: purple;
+      border: 1px solid black;
+      border-radius: $button-border-radius;
+      list-style: none;
+      min-width: 80px;
+      padding: 10px;
+      text-align: center;
+      
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .pages-view-container {
+    padding-top: 30px;
+  }
+}

@@ -1,0 +1,17 @@
+@import '../../global/styles/variables.scss';
+
+.add-city-container {
+  .error-container {
+    background-color: $error-red;
+    padding: 15px;
+
+    &[data-invalid=''],
+    &[data-invalid='false'] {
+      display: none;
+    }
+
+    &[data-invalid='true'] {
+      display: block;
+    }
+  }
+}
