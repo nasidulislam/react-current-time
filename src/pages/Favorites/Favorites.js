@@ -18,9 +18,11 @@ class Favorites extends React.Component {
           helperText={content.text.header.helper}
         />
 
-        {this.props.favoriteCities.map((city, idx) => (
-          <City key={idx} index={idx} city={city} />
-        ))}
+        <div className={content.classList.favoritesDisplay.containerClass}>
+          {this.props.favoriteCities.map((city, idx) => (
+            <City key={idx} index={idx} city={city} />
+          ))}
+        </div>
       </div>
     );
   }

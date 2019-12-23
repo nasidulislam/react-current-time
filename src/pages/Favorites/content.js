@@ -5,5 +5,10 @@ export default {
       main: "Your Favorites",
       helper: "One List, One Place"
     }
+  },
+  classList: {
+    favoritesDisplay: {
+      containerClass: 'favorites-display'
+    }
   }
 };
