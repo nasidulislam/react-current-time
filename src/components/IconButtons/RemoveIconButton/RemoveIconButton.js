@@ -1,13 +1,13 @@
 import React from "react";
 import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
-import "./IconButtons.scss";
+import RemoveIcon from "@material-ui/icons/Remove";
+import "../IconButtons.scss";
 
 // other imports
 import content from "./content";
-import classList from "../../global/js/helpers/classList";
+import classList from "../../../global/js/helpers/classList";
 
-const AddIconButton = props => {
+const RemoveIconButton = props => {
   return (
     <div
       className={classList(content.containerClass, props.containerClass)}
@@ -16,12 +16,11 @@ const AddIconButton = props => {
       <Fab
         color={props.color}
         aria-label={props.label}
-        className={"icon-button " + props.buttonClass}
       >
-        <AddIcon />
+        <RemoveIcon />
       </Fab>
     </div>
   );
 };
 
-export default AddIconButton;
+export default RemoveIconButton;
