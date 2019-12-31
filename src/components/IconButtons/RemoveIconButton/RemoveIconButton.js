@@ -11,7 +11,7 @@ const RemoveIconButton = props => {
   return (
     <div
       className={classList(content.containerClass, props.containerClass)}
-      onClick={props.onClickHandler}
+      onClick={(event) => {props.onClickHandler(props.index, event)}}
     >
       <Fab
         color={props.color}

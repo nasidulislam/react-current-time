@@ -20,7 +20,12 @@ class Favorites extends React.Component {
 
         <div className={content.classList.favoritesDisplay.containerClass}>
           {this.props.favoriteCities.map((city, idx) => (
-            <City key={idx} index={idx} city={city} />
+            <City
+              key={idx}
+              index={idx}
+              city={city}
+              cityRemoveHandler={this.props.cityRemoveHandler}
+            />
           ))}
         </div>
       </div>

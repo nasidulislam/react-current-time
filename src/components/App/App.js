@@ -71,6 +71,17 @@ class App extends React.Component {
     const favorites = this.state.favorites;
 
     favorites.push(currentCity);
+    this.setFavorites(favorites);
+  };
+
+  removeFromFavorites = (index) => {
+    const favorites = this.state.favorites;
+
+    favorites.splice(index, 1);
+    this.setFavorites(favorites);
+  };
+
+  setFavorites = (favorites) => {
     storageService.set(content.localStorage.keys.favorites, favorites);
     this.setState({ favorites });
   };
@@ -93,7 +104,10 @@ class App extends React.Component {
             <div className={classList(content.classList.pages.containerClass)}>
               <Switch>
                 <Route path="/favorites">
-                  <Favorites favoriteCities={this.state.favorites} />
+                  <Favorites
+                    favoriteCities={this.state.favorites}
+                    cityRemoveHandler={this.removeFromFavorites}
+                  />
                 </Route>
                 <Route path="/">
                   <Home

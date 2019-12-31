@@ -16,7 +16,7 @@ const City = props => {
         <span>{props.city.currentTime}</span>
       </div>
       <div className={content.classList.removeButton}>
-        <RemoveIconButton/>
+        <RemoveIconButton index={props.index} onClickHandler={props.cityRemoveHandler} />
       </div>
     </div>
   );
