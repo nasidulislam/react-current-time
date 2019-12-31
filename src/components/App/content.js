@@ -9,5 +9,10 @@ export default {
     pages: {
       containerClass: "pages-view-container"
     }
+  },
+  localStorage: {
+    keys: {
+      favorites: 'favorites'
+    }
   }
 };

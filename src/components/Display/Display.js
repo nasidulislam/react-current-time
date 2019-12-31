@@ -2,7 +2,7 @@ import React from "react";
 import "./Display.scss";
 
 // component imports
-import AddIconButton from "../IconButtons/AddIconButton";
+import AddIconButton from "../IconButtons/AddIconButton/AddIconButton";
 
 // other imports
 import content from "./content";

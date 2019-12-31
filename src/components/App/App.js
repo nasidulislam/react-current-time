@@ -11,13 +11,21 @@ import content from "./content";
 import classList from "../../global/js/helpers/classList";
 import "../../global/styles/reset.scss";
 import timezone from "../../global/js/services/timezone";
+import storageService from '../../global/js/services/localStorage';
 
 class App extends React.Component {
   state = {
     favorites: [],
     currentCity: "",
-    hasNoLocation: "",
-    favorites: []
+    hasNoLocation: ""
+  };
+
+  componentDidMount() {
+    const localFavorites = storageService.get(content.localStorage.keys.favorites);
+
+    if (localFavorites) {
+      this.setState({ favorites: JSON.parse(localFavorites) });
+    }
   };
 
   lookupCity = () => {
@@ -26,7 +34,6 @@ class App extends React.Component {
     let currentCity;
 
     if (address) {
-      // currentCity = addressObject.formatted_address;
       currentCity = {
         name: addressObject.formatted_address,
         lat: addressObject.geometry.location.lat(),
@@ -64,6 +71,18 @@ class App extends React.Component {
     const favorites = this.state.favorites;
 
     favorites.push(currentCity);
+    this.setFavorites(favorites);
+  };
+
+  removeFromFavorites = (index) => {
+    const favorites = this.state.favorites;
+
+    favorites.splice(index, 1);
+    this.setFavorites(favorites);
+  };
+
+  setFavorites = (favorites) => {
+    storageService.set(content.localStorage.keys.favorites, favorites);
     this.setState({ favorites });
   };
 
@@ -85,7 +104,10 @@ class App extends React.Component {
             <div className={classList(content.classList.pages.containerClass)}>
               <Switch>
                 <Route path="/favorites">
-                  <Favorites favoriteCities={this.state.favorites} />
+                  <Favorites
+                    favoriteCities={this.state.favorites}
+                    cityRemoveHandler={this.removeFromFavorites}
+                  />
                 </Route>
                 <Route path="/">
                   <Home

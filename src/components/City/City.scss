@@ -1,3 +1,8 @@
 .city-container {
   display: flex;
+  justify-content: space-between;
+
+	.info-display-container {
+		font-size: 20px;
+	}
 }

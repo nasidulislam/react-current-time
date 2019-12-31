@@ -1,0 +1,6 @@
+@import '../../global/styles/variables';
+
+.icon-button > button {
+	height: $icon-button-size;
+	width: $icon-button-size;
+}
